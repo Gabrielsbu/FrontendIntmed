@@ -1,0 +1,41 @@
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+.buttons {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
+}
+
+.buttons button:first-child {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  background: #ffffff;
+  border: 0;
+  color: #49b4bb;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: 0;
+}
+
+.buttons button:last-child {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  background: #49b4bb;
+  border: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: 0;
+}
+
+.buttons button:hover {
+  opacity: 0.8;
+  transition: 0.3s;
+}

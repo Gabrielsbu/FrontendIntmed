@@ -1,0 +1,124 @@
+/* Header  */
+.container-header {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+  background-color: #ffffff;
+  padding: 30px 0;
+}
+
+.content {
+  display: flex;
+  justify-content: space-between;
+}
+
+.content span img {
+  cursor: pointer;
+  outline: 0;
+}
+
+.spacer {
+  display: flex;
+}
+
+.spacer h4 {
+  margin-right: 100px;
+  color: #a8a8a8;
+  font-size: 18px;
+  line-height: 16px;
+}
+
+.spacer a {
+  text-decoration: none;
+  outline: 0;
+  border: 0;
+  color: #49b4bb;
+  font-size: 18px;
+  line-height: 16px;
+}
+
+mat-toolbar-row span img {
+  width: 40%;
+  height: 15%;
+}
+
+/* Header tabela */
+
+.content-table {
+  display: flex;
+  flex-direction: column;
+}
+
+.header-table {
+  display: flex;
+  width: 100%;
+  max-width: 1100px;
+  margin: 25px auto;
+  justify-content: space-between;
+}
+
+.header-table h2 {
+  font-weight: bold;
+  font-size: 26px;
+  color: #444444;
+}
+
+.header-table button {
+  width: 180px;
+  height: 40px;
+  border-radius: 8px;
+  background: #49b4bb;
+  border: 0;
+  color: #ffffff;
+  font-size: 15px;
+  font-weight: bold;
+  cursor: pointer;
+  outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.header-table button span {
+  color: #ffffff;
+  margin-left: 12px;
+}
+/* Tabela */
+
+table {
+  width: 100%;
+  max-width: 1100px;
+  margin: 0 auto;
+}
+
+table th {
+  text-align: center;
+  width: 250px;
+}
+table tr {
+  text-align: center;
+  width: 150px;
+}
+
+table td span {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+table td span button {
+  border: 0;
+  background: none;
+  color: #49b4bb;
+  cursor: pointer;
+  outline: 0;
+}
+
+table td span a {
+  border: 0;
+  background: none;
+  color: #49b4bb;
+  cursor: pointer;
+  text-decoration: none;
+  outline: 0;
+  margin-left: 15px;
+}
