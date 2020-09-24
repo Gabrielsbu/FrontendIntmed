@@ -1,4 +1,4 @@
-import { ServiceService } from './../../services/service/service.service';
+import { AuthenticationService } from './../../services/service/authentication.service';
 import { Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
@@ -16,7 +16,7 @@ export class RegisterComponent implements OnInit {
 
   constructor(
     private formBuilder: FormBuilder,
-    private rest: ServiceService,
+    private rest: AuthenticationService,
     private router: Router
   ) {}
 
@@ -25,7 +25,7 @@ export class RegisterComponent implements OnInit {
       username: ['', [Validators.required]],
       password1: ['', [Validators.required]],
       password2: ['', [Validators.required]],
-      email: ['', [Validators.required]],
+      email: '',
     });
   }
 

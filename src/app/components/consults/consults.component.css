@@ -126,3 +126,13 @@ table td button span {
   margin-left: 15px;
   font-size: 17px;
 }
+
+.example-radio-group {
+  display: flex;
+  flex-direction: column;
+  margin: 15px 0;
+}
+
+.example-radio-button {
+  margin: 5px;
+}

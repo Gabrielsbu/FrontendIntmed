@@ -8,9 +8,8 @@ import { Logins } from './../model/login.model';
 @Injectable({
   providedIn: 'root',
 })
-export class ServiceService {
+export class AuthenticationService {
   apiUrlAuth = 'http://127.0.0.1:8000/auth';
-  api = 'http://127.0.0.1:8000';
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -34,13 +33,5 @@ export class ServiceService {
       login,
       this.httpOptions
     );
-  }
-
-  public buscarUsuarios(): Observable<any> {
-    return this.http.get<any>(this.api + '/users/');
-  }
-
-  public buscarUmUsuarios(id): Observable<any> {
-    return this.http.get<any>(this.api + '/users/' + id + '/');
   }
 }

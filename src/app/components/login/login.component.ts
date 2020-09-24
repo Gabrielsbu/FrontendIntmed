@@ -3,7 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 import { User } from './../../services/model/user.model';
-import { ServiceService } from './../../services/service/service.service';
+import { AuthenticationService } from './../../services/service/authentication.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -17,7 +17,7 @@ export class LoginComponent implements OnInit {
   public formLogin: FormGroup;
   constructor(
     private formBuilder: FormBuilder,
-    private rest: ServiceService,
+    private rest: AuthenticationService,
     private router: Router
   ) {}
 
@@ -25,7 +25,6 @@ export class LoginComponent implements OnInit {
     this.formLogin = this.formBuilder.group({
       username: ['', [Validators.required]],
       password: ['', [Validators.required]],
-      email: ['', [Validators.required]],
     });
   }
 

@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ModalConsultsComponent } from './../modal-consults/modal-consults.component';
-import { ServiceService } from './../../services/service/service.service';
+import { AuthenticationService } from './../../services/service/authentication.service';
 
 import { User } from './../../services/model/user.model';
 
@@ -45,7 +45,10 @@ export class ConsultsComponent implements OnInit {
   ];
   dataSource = ELEMENT_DATA;
 
-  constructor(public dialog: MatDialog, private services: ServiceService) {}
+  constructor(
+    public dialog: MatDialog,
+    private services: AuthenticationService
+  ) {}
 
   openDialog() {
     this.dialog.open(ModalConsultsComponent, {
@@ -53,18 +56,5 @@ export class ConsultsComponent implements OnInit {
     });
   }
 
-  ngOnInit(): void {
-    this.getUsuarios();
-  }
-
-  getUsuarios = () => {
-    this.services.buscarUsuarios().subscribe(
-      (data) => {
-        this.users = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
-  };
+  ngOnInit(): void {}
 }

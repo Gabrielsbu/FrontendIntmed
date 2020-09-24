@@ -3,37 +3,19 @@
 
   <form>
     <mat-form-field>
-      <mat-label>Especialidade</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{ food.viewValue }}
+      <mat-label>Profissional</mat-label>
+      <mat-select name="medico">
+        <mat-option *ngFor="let med of medico" [value]="med">
+          {{ med.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
       <mat-label>Profissional</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{ food.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Data</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{ food.viewValue }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <mat-form-field>
-      <mat-label>Hora</mat-label>
-      <mat-select [(ngModel)]="selectedValue" name="food">
-        <mat-option *ngFor="let food of foods" [value]="food.value">
-          {{ food.viewValue }}
+      <mat-select name="medico">
+        <mat-option *ngFor="let med of medico" [value]="med">
+          {{ med.especialidade }}
         </mat-option>
       </mat-select>
     </mat-form-field>

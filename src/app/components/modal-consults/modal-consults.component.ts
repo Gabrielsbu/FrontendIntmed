@@ -1,9 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
-interface Food {
-  value: string;
-  viewValue: string;
-}
+import { EspecialidadesService } from './../../services/service/especialidades.service';
+import { Especialidade } from './../../services/model/especialidade.model';
+import { Medico } from './../../services/model/medico.model';
 
 @Component({
   selector: 'app-modal-consults',
@@ -11,15 +10,35 @@ interface Food {
   styleUrls: ['./modal-consults.component.css'],
 })
 export class ModalConsultsComponent implements OnInit {
-  selectedValue: string;
+  especialidade: Especialidade[];
+  medico: Medico[];
 
-  foods: Food[] = [
-    { value: 'steak-0', viewValue: 'Steak' },
-    { value: 'pizza-1', viewValue: 'Pizza' },
-    { value: 'tacos-2', viewValue: 'Tacos' },
-  ];
+  constructor(private httpService: EspecialidadesService) {}
 
-  constructor() {}
+  ngOnInit(): void {
+    this.buscarEspecialidades();
+    this.buscarMedico();
+  }
 
-  ngOnInit(): void {}
+  buscarEspecialidades() {
+    this.httpService.buscarEspecialidades().subscribe(
+      (data) => {
+        this.especialidade = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  buscarMedico() {
+    this.httpService.buscarMedicos().subscribe(
+      (data) => {
+        this.medico = data;
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
 }
