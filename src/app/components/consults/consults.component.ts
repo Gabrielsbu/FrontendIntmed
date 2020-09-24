@@ -54,14 +54,13 @@ export class ConsultsComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.getLeads();
+    this.getUsuarios();
   }
 
-  getLeads = () => {
+  getUsuarios = () => {
     this.services.buscarUsuarios().subscribe(
       (data) => {
         this.users = data;
-        console.log(Response);
       },
       (error) => {
         console.log(error);

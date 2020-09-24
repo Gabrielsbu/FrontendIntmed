@@ -37,6 +37,10 @@ export class ServiceService {
   }
 
   public buscarUsuarios(): Observable<any> {
-    return this.http.get(this.api + '/users/');
+    return this.http.get<any>(this.api + '/users/');
+  }
+
+  public buscarUmUsuarios(id): Observable<any> {
+    return this.http.get<any>(this.api + '/users/' + id + '/');
   }
 }

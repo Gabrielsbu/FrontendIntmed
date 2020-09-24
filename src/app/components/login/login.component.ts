@@ -41,9 +41,9 @@ export class LoginComponent implements OnInit {
       },
       (error) => {
         Swal.fire(
-          'Ops, verifique os campos novamente!',
-          'You clicked the button!',
-          'warning'
+          'Ops, algo de errado não estar certo!',
+          'Verifique os campos e tente novamente!',
+          'error'
         );
       }
     );
