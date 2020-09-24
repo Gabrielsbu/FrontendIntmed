@@ -2,6 +2,9 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ModalConsultsComponent } from './../modal-consults/modal-consults.component';
+import { ServiceService } from './../../services/service/service.service';
+
+import { User } from './../../services/model/user.model';
 
 export interface PeriodicElement {
   especialidade: string;
@@ -31,6 +34,8 @@ const ELEMENT_DATA: PeriodicElement[] = [
   styleUrls: ['./consults.component.css'],
 })
 export class ConsultsComponent implements OnInit {
+  users: User[];
+
   displayedColumns: string[] = [
     'especialidade',
     'profissional',
@@ -40,7 +45,7 @@ export class ConsultsComponent implements OnInit {
   ];
   dataSource = ELEMENT_DATA;
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private services: ServiceService) {}
 
   openDialog() {
     this.dialog.open(ModalConsultsComponent, {
@@ -48,9 +53,19 @@ export class ConsultsComponent implements OnInit {
     });
   }
 
-  funcao() {
-    console.log('ola');
+  ngOnInit(): void {
+    this.getLeads();
   }
 
-  ngOnInit(): void {}
+  getLeads = () => {
+    this.services.buscarUsuarios().subscribe(
+      (data) => {
+        this.users = data;
+        console.log(Response);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  };
 }

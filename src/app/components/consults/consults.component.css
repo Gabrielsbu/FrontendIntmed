@@ -105,15 +105,18 @@ table td span {
   justify-content: center;
 }
 
-table td span button {
+table td button {
   border: 0;
   background: none;
   color: #49b4bb;
   cursor: pointer;
   outline: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-table td span a {
+table td button span {
   border: 0;
   background: none;
   color: #49b4bb;
@@ -121,4 +124,5 @@ table td span a {
   text-decoration: none;
   outline: 0;
   margin-left: 15px;
+  font-size: 17px;
 }

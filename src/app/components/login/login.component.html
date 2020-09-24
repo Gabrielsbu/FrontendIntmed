@@ -4,15 +4,30 @@
       <img routerLink="" src="../../../assets/logo-main.png" alt="logo-main" />
     </header>
 
-    <form>
+    <form [formGroup]="formLogin">
       <mat-form-field>
-        <mat-label>Email ou Login</mat-label>
-        <input matInput placeholder="Email ou Login" />
+        <mat-label>Nome</mat-label>
+        <input
+          matInput
+          placeholder="Nome"
+          formControlName="username"
+          required
+        />
+      </mat-form-field>
+
+      <mat-form-field>
+        <mat-label>Email</mat-label>
+        <input matInput placeholder="Email" formControlName="email" required />
       </mat-form-field>
 
       <mat-form-field>
         <mat-label>Senha</mat-label>
-        <input matInput [type]="hide ? 'password' : 'text'" />
+        <input
+          required
+          matInput
+          [type]="hide ? 'password' : 'text'"
+          formControlName="password"
+        />
         <button
           mat-icon-button
           matSuffix
@@ -31,7 +46,7 @@
 
     <div class="buttons">
       <button routerLink="/register">Criar conta</button>
-      <button routerLink="/consults">Acessar</button>
+      <button (click)="realizarLogin()">Acessar</button>
     </div>
   </div>
 </div>
