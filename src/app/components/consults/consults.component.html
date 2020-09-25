@@ -1,15 +1,12 @@
 <mat-toolbar class="container-header">
   <mat-toolbar-row class="content">
     <span
-      ><img
-        routerLink=""
-        src="../../../assets/logo-main.png"
-        alt="logo-consultas"
+      ><img src="../../../assets/logo-main.png" alt="logo-consultas"
     /></span>
 
     <div class="spacer">
       <h4>Gabriel</h4>
-      <a routerLink="">Desconectar</a>
+      <button (click)="logout()">Desconectar</button>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>

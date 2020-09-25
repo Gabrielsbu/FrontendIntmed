@@ -31,6 +31,7 @@ export class LoginComponent implements OnInit {
   realizarLogin() {
     this.rest.logarUsuario(this.formLogin.value).subscribe(
       (data) => {
+        localStorage.setItem('token', data.key);
         Swal.fire(
           'Você efetuou o Login!',
           'Seja bem vindo ao Medicar',

@@ -1,3 +1,4 @@
+import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
@@ -47,7 +48,8 @@ export class ConsultsComponent implements OnInit {
 
   constructor(
     public dialog: MatDialog,
-    private services: AuthenticationService
+    private services: AuthenticationService,
+    private _router: Router
   ) {}
 
   openDialog() {
@@ -57,4 +59,9 @@ export class ConsultsComponent implements OnInit {
   }
 
   ngOnInit(): void {}
+
+  logout() {
+    localStorage.clear();
+    this._router.navigate(['/']);
+  }
 }
