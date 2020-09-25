@@ -1,8 +1,12 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
+import Swal from 'sweetalert2';
 
-import { EspecialidadesService } from './../../services/service/especialidades.service';
-import { Especialidade } from './../../services/model/especialidade.model';
-import { Medico } from './../../services/model/medico.model';
+import { ConsultaService } from './../../services/service/consulta.service';
+import { AgendaService } from './../../services/service/agenda.service';
+import { Agenda } from './../../services/model/agenda.model';
+
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-modal-consults',
@@ -10,20 +14,32 @@ import { Medico } from './../../services/model/medico.model';
   styleUrls: ['./modal-consults.component.css'],
 })
 export class ModalConsultsComponent implements OnInit {
-  especialidade: Especialidade[];
-  medico: Medico[];
+  agenda: Agenda[];
 
-  constructor(private httpService: EspecialidadesService) {}
+  public consultaForm: FormGroup;
+
+  constructor(
+    private httpService: AgendaService,
+    private http: ConsultaService,
+    private formBuilder: FormBuilder,
+    private router: Router
+  ) {}
 
   ngOnInit(): void {
-    this.buscarEspecialidades();
-    this.buscarMedico();
+    this.consultaForm = this.formBuilder.group({
+      profissional: '',
+      especialidade: '',
+      dia: '',
+      horarios: '',
+    });
+
+    this.buscarAgenda();
   }
 
-  buscarEspecialidades() {
-    this.httpService.buscarEspecialidades().subscribe(
+  buscarAgenda() {
+    this.httpService.buscarAgenda().subscribe(
       (data) => {
-        this.especialidade = data;
+        this.agenda = data;
       },
       (error) => {
         console.log(error);
@@ -31,14 +47,24 @@ export class ModalConsultsComponent implements OnInit {
     );
   }
 
-  buscarMedico() {
-    this.httpService.buscarMedicos().subscribe(
+  criarConsulta() {
+    this.http.createConsult(this.consultaForm.value).subscribe(
       (data) => {
-        this.medico = data;
+        Swal.fire(
+          'Cadastro realizado com sucesso!',
+          `Seja bem vindo a Medicar`,
+          'success'
+        );
       },
       (error) => {
         console.log(error);
+        Swal.fire(
+          'Ops, algo de errado não está certo!',
+          'Verifique os campos novamente!',
+          'error'
+        );
       }
     );
+    this.consultaForm.reset();
   }
 }

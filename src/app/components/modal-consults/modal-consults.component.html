@@ -1,28 +1,46 @@
 <div class="container">
   <h2>Nova Consulta</h2>
 
-  <form>
+  <form [formGroup]="consultaForm">
     <mat-form-field>
       <mat-label>Profissional</mat-label>
-      <mat-select name="medico">
-        <mat-option *ngFor="let med of medico" [value]="med">
-          {{ med.nome }}
+      <mat-select name="agenda" formControlName="profissional">
+        <mat-option *ngFor="let agendas of agenda" [value]="agendas">
+          {{ agendas.medico.nome }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
     <mat-form-field>
-      <mat-label>Profissional</mat-label>
-      <mat-select name="medico">
-        <mat-option *ngFor="let med of medico" [value]="med">
-          {{ med.especialidade }}
+      <mat-label>Especialidade</mat-label>
+      <mat-select name="agenda" formControlName="especialidade">
+        <mat-option *ngFor="let agendas of agenda" [value]="agendas">
+          {{ agendas.medico.especialidade.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Dia</mat-label>
+      <mat-select name="agenda" formControlName="dia">
+        <mat-option *ngFor="let agendas of agenda" [value]="agendas">
+          {{ agendas.dia }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Horarios</mat-label>
+      <mat-select name="agenda" formControlName="horarios">
+        <mat-option *ngFor="let agendas of agenda" [value]="agendas">
+          {{ agendas.horarios }}
         </mat-option>
       </mat-select>
     </mat-form-field>
 
     <div class="buttons">
       <button mat-dialog-close>Cancelar</button>
-      <button mat-dialog-close>Confirmar</button>
+      <button (click)="criarConsulta()">Confirmar</button>
     </div>
   </form>
 </div>
