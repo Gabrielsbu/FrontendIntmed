@@ -1,129 +1,277 @@
 /* Header  */
-.container-header {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-  background-color: #ffffff;
-  padding: 30px 0;
+@media (max-width: 768px) {
+  .desktop {
+    display: none;
+  }
+
+  .mobile {
+    display: unset;
+    width: 100%;
+  }
+
+  .mat-toolbar {
+    background: #49b4bb;
+  }
+  .config-header img {
+    width: 10rem;
+  }
+
+  .title h1 {
+    display: flex;
+    text-align: start;
+    margin: 40px 0 20px 20px;
+    color: #393a4a;
+    font-weight: 500;
+  }
+
+  .config-main {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .config-card {
+    width: 80%;
+    border-radius: 10px;
+  }
+
+  .config-header-card {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .config-header-card div {
+    display: flex;
+    justify-content: space-between;
+  }
+
+  .config-header-card div h3 {
+    margin: 0;
+    color: #393a4a;
+  }
+
+  .config-buttons-card {
+    display: flex;
+    justify-content: space-between;
+    border-top: 1px solid #e7e7ed;
+  }
+
+  .config-buttons-card button {
+    display: flex;
+    align-items: center;
+    color: #6b6c7e;
+    border: none;
+    background: none;
+  }
+
+  .config-buttons-card button span {
+    margin-right: 9px;
+  }
+
+  .config-footer {
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    z-index: 2;
+    background: #ffffff;
+    width: 100%;
+    border-top: 1px solid #e7e7ed;
+    display: flex;
+    display: unset;
+  }
+
+  .config-list {
+    margin: 0;
+    padding: 10px 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .config-list li {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 15px;
+    color: #6b6c7e;
+  }
+
+  .config-list li button {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 0 15px;
+    color: #6b6c7e;
+    border: 0;
+    background: none;
+  }
+
+  .config-list li button p {
+    padding: 0;
+    margin: 0;
+  }
+
+  .config-list li:active {
+    color: #49b4bb;
+  }
+
+  .example-card {
+    max-width: 400px;
+  }
+
+  .example-header-image {
+    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
+    background-size: cover;
+  }
 }
 
-.content {
-  display: flex;
-  justify-content: space-between;
-}
+@media (min-width: 769px) {
+  .desktop {
+    display: unset;
+  }
 
-.content span img {
-  cursor: pointer;
-  outline: 0;
-}
+  .mobile {
+    display: none;
+  }
 
-.spacer {
-  display: flex;
-}
+  .container-header {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px 0;
+  }
 
-.spacer h4 {
-  margin-right: 60px;
-  color: #a8a8a8;
-  font-size: 18px;
-  line-height: 16px;
-}
+  .content {
+    display: flex;
+    justify-content: space-between;
+  }
 
-.spacer a {
-  text-decoration: none;
-  outline: 0;
-  border: 0;
-  color: #49b4bb;
-  font-size: 18px;
-  line-height: 16px;
-  cursor: pointer;
-}
+  .content span img {
+    cursor: pointer;
+    outline: 0;
+  }
 
-mat-toolbar-row span img {
-  width: 40%;
-  height: 15%;
-}
+  .spacer {
+    display: flex;
+  }
 
-/* Header tabela */
+  .spacer h4 {
+    margin-right: 60px;
+    color: #a8a8a8;
+    font-size: 18px;
+    line-height: 16px;
+  }
 
-.content-table {
-  display: flex;
-  flex-direction: column;
-}
+  .spacer a {
+    text-decoration: none;
+    outline: 0;
+    border: 0;
+    color: #49b4bb;
+    font-size: 18px;
+    line-height: 16px;
+    cursor: pointer;
+  }
 
-.header-table {
-  display: flex;
-  width: 100%;
-  max-width: 1100px;
-  margin: 25px auto;
-  justify-content: space-between;
-}
+  mat-toolbar-row span img {
+    width: 40%;
+    height: 15%;
+  }
 
-.header-table h2 {
-  font-weight: bold;
-  font-size: 26px;
-  color: #444444;
-}
+  /* Header tabela */
 
-.header-table button {
-  width: 180px;
-  height: 40px;
-  border-radius: 8px;
-  background: #49b4bb;
-  border: 0;
-  color: #ffffff;
-  font-size: 15px;
-  font-weight: bold;
-  cursor: pointer;
-  outline: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-.header-table button span {
-  color: #ffffff;
-  margin-left: 12px;
-}
-/* Tabela */
+  .content-table {
+    display: flex;
+    flex-direction: column;
+  }
 
-table {
-  width: 100%;
-  max-width: 1100px;
-  margin: 0 auto;
-}
+  .header-table {
+    display: flex;
+    width: 100%;
+    max-width: 1100px;
+    margin: 25px auto;
+    justify-content: space-between;
+  }
 
-table th {
-  text-align: center;
-  width: 250px;
-}
-table tr {
-  text-align: center;
-  width: 150px;
-}
+  .header-table h2 {
+    font-weight: bold;
+    font-size: 26px;
+    color: #444444;
+  }
 
-table td span {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  .header-table button {
+    width: 180px;
+    height: 40px;
+    border-radius: 8px;
+    background: #49b4bb;
+    border: 0;
+    color: #ffffff;
+    font-size: 15px;
+    font-weight: bold;
+    cursor: pointer;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  .header-table button span {
+    color: #ffffff;
+    margin-left: 12px;
+  }
+  /* Tabela */
 
-table td button {
-  border: 0;
-  background: none;
-  color: #49b4bb;
-  cursor: pointer;
-  outline: 0;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
+  table {
+    width: 100%;
+    max-width: 1100px;
+    margin: 0 auto;
+  }
 
-table td button span {
-  border: 0;
-  background: none;
-  color: #49b4bb;
-  cursor: pointer;
-  text-decoration: none;
-  outline: 0;
-  margin-left: 15px;
-  font-size: 17px;
+  table th {
+    text-align: center;
+    width: 250px;
+  }
+  table tr {
+    text-align: center;
+    width: 150px;
+  }
+
+  table td span {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  table td button {
+    border: 0;
+    background: none;
+    color: #49b4bb;
+    cursor: pointer;
+    outline: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  table td button span {
+    border: 0;
+    background: none;
+    color: #49b4bb;
+    cursor: pointer;
+    text-decoration: none;
+    outline: 0;
+    margin-left: 15px;
+    font-size: 17px;
+  }
+
+  footer {
+    display: none;
+  }
 }
