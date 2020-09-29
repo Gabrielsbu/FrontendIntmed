@@ -13,6 +13,8 @@ import { RegisterComponent } from './modules/register/register.component';
 import { ConsultsComponent } from './modules/consults/consults.component';
 
 //utils
+import { CadastrarConsultaMobileComponent } from './modules/cadastrar-consulta-mobile/cadastrar-consulta-mobile.component';
+import { ConsultaDetalhadaComponent } from './modules/consulta-detalhada/consulta-detalhada.component';
 import { ModalConsultsComponent } from './modules/consults/modal-consults/modal-consults.component';
 
 //interceptors
@@ -29,7 +31,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-import { CadastrarConsultaMobileComponent } from './modules/cadastrar-consulta-mobile/cadastrar-consulta-mobile.component';
 
 @NgModule({
   declarations: [
@@ -39,6 +40,7 @@ import { CadastrarConsultaMobileComponent } from './modules/cadastrar-consulta-m
     ConsultsComponent,
     ModalConsultsComponent,
     CadastrarConsultaMobileComponent,
+    ConsultaDetalhadaComponent,
   ],
   imports: [
     BrowserModule,

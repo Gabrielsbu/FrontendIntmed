@@ -1,0 +1,51 @@
+<div class="mobile">
+  <header class="config-header">
+    <mat-toolbar>
+      <mat-toolbar-row>
+        <img src="../../../assets/logo-main.png" alt="logo-consultas" />
+      </mat-toolbar-row>
+    </mat-toolbar>
+  </header>
+
+  <div class="title">
+    <h1>Detalhes da consulta</h1>
+  </div>
+
+  <main class="config-main">
+    <span>Especialidade</span>
+    <h3>Cardiologista</h3>
+
+    <span>Médico</span>
+    <h3>Gabriel tal tal</h3>
+
+    <span>Data</span>
+    <h3>28/07/2020</h3>
+
+    <span>Horário</span>
+    <h3>17:30</h3>
+  </main>
+  <button class="buttons">Desmarcar Consulta</button>
+
+  <footer class="config-footer">
+    <ul class="config-list">
+      <li class="active">
+        <button>
+          <mat-icon routerLinkActive>home</mat-icon>
+          <p>Início</p>
+        </button>
+      </li>
+      <li>
+        <button routerLink="/register-consult">
+          <mat-icon>add_circle_outline</mat-icon>
+          <p>Nova consulta</p>
+        </button>
+      </li>
+      <li>
+        <button>
+          <mat-icon>person_outline</mat-icon>
+          <p>Perfil</p>
+        </button>
+      </li>
+    </ul>
+  </footer>
+</div>
