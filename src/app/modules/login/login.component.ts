@@ -2,8 +2,9 @@ import { Router } from '@angular/router';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
-import { User } from './../../services/model/user.model';
-import { AuthenticationService } from './../../services/service/authentication.service';
+import { User } from './../../cors/services/model/user.model';
+import { HandleErrorService } from './../../cors/services/service/handleError.service';
+import { AuthenticationService } from './../../cors/services/service/authentication.service';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,6 +16,7 @@ export class LoginComponent implements OnInit {
   hide = true;
   users: User[];
   public formLogin: FormGroup;
+
   constructor(
     private formBuilder: FormBuilder,
     private rest: AuthenticationService,
@@ -40,11 +42,22 @@ export class LoginComponent implements OnInit {
         this.router.navigate(['/consults']);
       },
       (error) => {
-        Swal.fire(
-          'Ops, algo de errado não estar certo!',
-          'Verifique os campos e tente novamente!',
-          'error'
-        );
+        console.log(error);
+        if (error.status === 400) {
+          Swal.fire(
+            'Verifique as credenciais inseridas e preencha todos os campos!',
+            'Verifique os campos novamente!',
+            'error'
+          );
+
+          if (error.error.password[0]) {
+            Swal.fire(
+              error.error.password[0],
+              'Verifique os campos novamente!',
+              'error'
+            );
+          }
+        }
       }
     );
     this.formLogin.reset();

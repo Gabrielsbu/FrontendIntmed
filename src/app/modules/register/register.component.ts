@@ -1,4 +1,4 @@
-import { AuthenticationService } from './../../services/service/authentication.service';
+import { AuthenticationService } from './../../cors/services/service/authentication.service';
 import { Router } from '@angular/router';
 
 import { Component, OnInit } from '@angular/core';
@@ -40,12 +40,21 @@ export class RegisterComponent implements OnInit {
         this.router.navigate(['/']);
       },
       (error) => {
-        console.log(error);
-        Swal.fire(
-          'Ops, algo de errado não está certo!',
-          'Verifique os campos novamente!',
-          'error'
-        );
+        if (error.status === 400) {
+          Swal.fire(
+            'Verifique as credenciais inseridas e preencha todos os campos!',
+            'Verifique os campos novamente!',
+            'error'
+          );
+
+          if (error.error.username[0]) {
+            Swal.fire(
+              error.error.username[0],
+              'Verifique os campos novamente!',
+              'error'
+            );
+          }
+        }
       }
     );
     this.registerForm.reset();

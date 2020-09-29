@@ -1,0 +1,63 @@
+<div class="container">
+  <h2>Nova Consulta</h2>
+
+  <form [formGroup]="consultaForm">
+    <mat-form-field>
+      <mat-label>Especialidade</mat-label>
+      <mat-select
+        formControlName="especialidade"
+        (selectionChange)="getMedicosPorEspecialidade($event.value)"
+      >
+        <mat-option
+          *ngFor="let especialidade of especialidades"
+          [value]="especialidade"
+        >
+          {{ especialidade.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Profissional</mat-label>
+      <mat-select
+        formControlName="agenda"
+        (selectionChange)="medicoSelecionado = $event.value"
+      >
+        <mat-option
+          *ngFor="let agenda of medicosPorEspecialidade"
+          [value]="agenda"
+        >
+          {{ agenda.medico.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!!medicoSelecionado">
+      <mat-label>Dia</mat-label>
+      <mat-select formControlName="dia">
+        <mat-option [value]="medicoSelecionado.dia">
+          {{ medicoSelecionado.dia }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <mat-form-field *ngIf="!!medicoSelecionado">
+      <mat-label>Horarios</mat-label>
+      <mat-select formControlName="horario">
+        <mat-option
+          *ngFor="let horario of medicoSelecionado.horarios"
+          [value]="horario"
+        >
+          {{ horario }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    <div class="buttons">
+      <button mat-dialog-close>Cancelar</button>
+      <button (click)="criarConsulta()" [disabled]="consultaForm.invalid">
+        Confirmar
+      </button>
+    </div>
+  </form>
+</div>

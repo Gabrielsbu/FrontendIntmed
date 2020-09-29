@@ -1,13 +1,22 @@
+import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 import { AppRoutingModule } from './app-routing.module';
-import { AppComponent } from './app.component';
-import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
+import { AppComponent } from './app.component';
 //components
-import { LoginComponent } from './components/login/login.component';
-import { RegisterComponent } from './components/register/register.component';
+import { LoginComponent } from './modules/login/login.component';
+import { RegisterComponent } from './modules/register/register.component';
+import { ConsultsComponent } from './modules/consults/consults.component';
+
+//utils
+import { ModalConsultsComponent } from './modules/consults/modal-consults/modal-consults.component';
+
+//interceptors
+import { JwtInterceptor } from './cors/helpers/jwt.interceptor';
 
 //angular material
 import { MatToolbarModule } from '@angular/material/toolbar';
@@ -15,16 +24,11 @@ import { MatIconModule } from '@angular/material/icon';
 import { MatButtonModule } from '@angular/material/button';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
-import { HttpClientModule, HTTP_INTERCEPTORS } from '@angular/common/http';
-import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatInputModule } from '@angular/material/input';
 import { MatCheckboxModule } from '@angular/material/checkbox';
-import { ConsultsComponent } from './components/consults/consults.component';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
-import { ModalConsultsComponent } from './components/modal-consults/modal-consults.component';
 import { MatSelectModule } from '@angular/material/select';
-import { JwtInterceptor } from './helpers/jwt.interceptor';
 
 @NgModule({
   declarations: [

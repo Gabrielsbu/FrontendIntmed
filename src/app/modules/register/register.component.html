@@ -8,13 +8,17 @@
     <main>
       <form [formGroup]="registerForm">
         <mat-form-field>
-          <mat-label>Nome</mat-label>
-          <input matInput placeholder="Nome" formControlName="username" />
+          <mat-label>Login</mat-label>
+          <input matInput placeholder="Login" formControlName="username" />
         </mat-form-field>
 
         <mat-form-field>
           <mat-label>Email</mat-label>
-          <input matInput placeholder="Email" formControlName="email" />
+          <input
+            matInput
+            placeholder="Email@example.com"
+            formControlName="email"
+          />
         </mat-form-field>
 
         <mat-form-field>

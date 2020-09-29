@@ -4,7 +4,6 @@ import { Observable } from 'rxjs';
 import { IToken } from '../model/token';
 
 import { User } from '../model/user.model';
-import { Logins } from './../model/login.model';
 
 @Injectable({
   providedIn: 'root',

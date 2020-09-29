@@ -5,8 +5,8 @@
     /></span>
 
     <div class="spacer">
-      <h4>Gabriel</h4>
-      <button (click)="logout()">Desconectar</button>
+      <h4>Bem-vindo</h4>
+      <a (click)="logout()">Desconectar</a>
     </div>
   </mat-toolbar-row>
 </mat-toolbar>
@@ -23,30 +23,34 @@
     <!-- Name Column -->
     <ng-container matColumnDef="especialidade">
       <th mat-header-cell *matHeaderCellDef>Especialidade</th>
-      <td mat-cell *matCellDef="let element">{{ element.especialidade }}</td>
+      <td mat-cell *matCellDef="let element">
+        {{ element.agenda.medico.especialidade.nome }}
+      </td>
     </ng-container>
 
     <ng-container matColumnDef="profissional">
       <th mat-header-cell *matHeaderCellDef>Profissional</th>
-      <td mat-cell *matCellDef="let element">{{ element.profissional }}</td>
+      <td mat-cell *matCellDef="let element">
+        {{ element.agenda.medico.nome }}
+      </td>
     </ng-container>
 
     <!-- Weight Column -->
     <ng-container matColumnDef="data">
       <th mat-header-cell *matHeaderCellDef>Data</th>
-      <td mat-cell *matCellDef="let element">{{ element.data }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.agenda.dia }}</td>
     </ng-container>
 
     <!-- Symbol Column -->
     <ng-container matColumnDef="hora">
       <th mat-header-cell *matHeaderCellDef>Hora</th>
-      <td mat-cell *matCellDef="let element">{{ element.hora }}</td>
+      <td mat-cell *matCellDef="let element">{{ element.horario }}</td>
     </ng-container>
 
     <ng-container matColumnDef="acoes">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <button>
+        <button (click)="excluirConsulta(element.id)">
           <mat-icon>close</mat-icon>
           <span>Desmarcar</span>
         </button>
