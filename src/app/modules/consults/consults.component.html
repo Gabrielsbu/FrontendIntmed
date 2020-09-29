@@ -1,27 +1,27 @@
 <!-- Mobile -->
 <div class="mobile">
-  <header class="config-header">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <img src="../../../assets/logo-main.png" alt="logo-consultas" />
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </header>
+  <app-header></app-header>
 
   <div class="title">
     <h1>Consulta marcadas</h1>
   </div>
 
   <main class="config-main">
-    <mat-card class="example-card" class="config-card">
+    <mat-card
+      class="example-card"
+      class="config-card"
+      *ngFor="let consult of consulta"
+    >
       <mat-card-header class="config-header-card">
-        <div>
+        <div class="config-colors">
           <h3>
-            <strong>Fisioterapeuta </strong>
+            <strong>
+              {{ consult.agenda.medico.especialidade.nome }}
+            </strong>
           </h3>
-          <span>28 jun . 16:00</span>
+          <span> {{ consult.agenda.dia | date }} . {{ consult.horario }} </span>
         </div>
-        <span>Dr. Gabriel tal tal</span>
+        <span>{{ consult.agenda.medico.nome }}</span>
       </mat-card-header>
 
       <mat-card-actions class="config-buttons-card">
@@ -29,35 +29,14 @@
           <span><mat-icon>remove_circle_outline</mat-icon></span
           >Desmarcar
         </button>
-        <button routerLink="/detail-consult">
+        <button [routerLink]="['/detail-consult', consult.id]">
           <span><mat-icon>arrow_right_alt</mat-icon></span> Detalhar
         </button>
       </mat-card-actions>
     </mat-card>
   </main>
 
-  <footer class="config-footer">
-    <ul class="config-list">
-      <li class="active">
-        <button>
-          <mat-icon routerLinkActive>home</mat-icon>
-          <p>Início</p>
-        </button>
-      </li>
-      <li>
-        <button routerLink="/register-consult">
-          <mat-icon>add_circle_outline</mat-icon>
-          <p>Nova consulta</p>
-        </button>
-      </li>
-      <li>
-        <button>
-          <mat-icon>person_outline</mat-icon>
-          <p>Perfil</p>
-        </button>
-      </li>
-    </ul>
-  </footer>
+  <app-footer></app-footer>
 </div>
 
 <!-- Desktop -->

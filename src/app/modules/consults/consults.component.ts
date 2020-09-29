@@ -5,6 +5,7 @@ import { MatDialog } from '@angular/material/dialog';
 import { ModalConsultsComponent } from './modal-consults/modal-consults.component';
 import { ConsultaService } from './../../cors/services/service/consulta.service';
 import { Consulta } from './../../cors/services/model/consultas.model';
+import { ConsultaMobile } from './../../cors/services/model/consultasMobile.model';
 
 export interface PeriodicElement {
   especialidade: string;
@@ -19,7 +20,7 @@ export interface PeriodicElement {
   styleUrls: ['./consults.component.css'],
 })
 export class ConsultsComponent implements OnInit {
-  consulta: Consulta[];
+  consulta: ConsultaMobile[];
   displayedColumns: string[] = [
     'especialidade',
     'profissional',
@@ -50,11 +51,24 @@ export class ConsultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarConsultas();
+    this.buscarConsultasMobile();
   }
 
   logout() {
     localStorage.clear();
     this._router.navigate(['/']);
+  }
+
+  buscarConsultasMobile() {
+    this._buscarConsultas.buscarConsulta().subscribe(
+      (data) => {
+        this.consulta = data;
+        console.log(this.consulta);
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   buscarConsultas() {

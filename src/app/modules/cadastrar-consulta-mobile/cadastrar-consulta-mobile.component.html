@@ -1,102 +1,66 @@
-<div class="mobile">
-  <header class="config-header">
-    <mat-toolbar>
-      <mat-toolbar-row>
-        <img src="../../../assets/logo-main.png" alt="logo-consultas" />
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </header>
+<app-header></app-header>
+<main class="container">
+  <h2>Nova Consulta</h2>
 
-  <div class="title">
-    <h1>Consulta marcadas</h1>
-  </div>
+  <form [formGroup]="consultaForm">
+    <mat-form-field>
+      <mat-label>Especialidade</mat-label>
+      <mat-select
+        formControlName="especialidade"
+        (selectionChange)="getMedicosPorEspecialidade($event.value)"
+      >
+        <mat-option
+          *ngFor="let especialidade of especialidades"
+          [value]="especialidade"
+        >
+          {{ especialidade.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-  <main class="config-main">
-    <div class="container">
-      <h2>Nova Consulta</h2>
+    <mat-form-field>
+      <mat-label>Profissional</mat-label>
+      <mat-select
+        formControlName="agenda"
+        (selectionChange)="medicoSelecionado = $event.value"
+      >
+        <mat-option
+          *ngFor="let agenda of medicosPorEspecialidade"
+          [value]="agenda"
+        >
+          {{ agenda.medico.nome }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-      <form [formGroup]="consultaForm">
-        <mat-form-field>
-          <mat-label>Especialidade</mat-label>
-          <mat-select
-            formControlName="especialidade"
-            (selectionChange)="getMedicosPorEspecialidade($event.value)"
-          >
-            <mat-option
-              *ngFor="let especialidade of especialidades"
-              [value]="especialidade"
-            >
-              {{ especialidade.nome }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+    <mat-form-field *ngIf="!!medicoSelecionado">
+      <mat-label>Dia</mat-label>
+      <mat-select formControlName="dia">
+        <mat-option [value]="medicoSelecionado.dia">
+          {{ medicoSelecionado.dia }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field>
-          <mat-label>Profissional</mat-label>
-          <mat-select
-            formControlName="agenda"
-            (selectionChange)="medicoSelecionado = $event.value"
-          >
-            <mat-option
-              *ngFor="let agenda of medicosPorEspecialidade"
-              [value]="agenda"
-            >
-              {{ agenda.medico.nome }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
+    <mat-form-field *ngIf="!!medicoSelecionado">
+      <mat-label>Horarios</mat-label>
+      <mat-select formControlName="horario">
+        <mat-option
+          *ngFor="let horario of medicoSelecionado.horarios"
+          [value]="horario"
+        >
+          {{ horario }}
+        </mat-option>
+      </mat-select>
+    </mat-form-field>
 
-        <mat-form-field *ngIf="!!medicoSelecionado">
-          <mat-label>Dia</mat-label>
-          <mat-select formControlName="dia">
-            <mat-option [value]="medicoSelecionado.dia">
-              {{ medicoSelecionado.dia }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <mat-form-field *ngIf="!!medicoSelecionado">
-          <mat-label>Horarios</mat-label>
-          <mat-select formControlName="horario">
-            <mat-option
-              *ngFor="let horario of medicoSelecionado.horarios"
-              [value]="horario"
-            >
-              {{ horario }}
-            </mat-option>
-          </mat-select>
-        </mat-form-field>
-
-        <div class="buttons">
-          <button routerLink="/consults">Cancelar</button>
-          <button (click)="criarConsulta()" [disabled]="consultaForm.invalid">
-            Confirmar
-          </button>
-        </div>
-      </form>
+    <div class="buttons">
+      <button (click)="criarConsulta()" [disabled]="consultaForm.invalid">
+        Confirmar
+      </button>
+      <button routerLink="/consults">Cancelar</button>
     </div>
-  </main>
+  </form>
+</main>
 
-  <footer class="config-footer">
-    <ul class="config-list">
-      <li class="active">
-        <button>
-          <mat-icon routerLinkActive>home</mat-icon>
-          <p>Início</p>
-        </button>
-      </li>
-      <li>
-        <button routerLink="/register-consult">
-          <mat-icon>add_circle_outline</mat-icon>
-          <p>Nova consulta</p>
-        </button>
-      </li>
-      <li>
-        <button>
-          <mat-icon>person_outline</mat-icon>
-          <p>Perfil</p>
-        </button>
-      </li>
-    </ul>
-  </footer>
-</div>
+<app-footer></app-footer>

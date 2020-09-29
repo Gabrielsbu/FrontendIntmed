@@ -38,4 +38,8 @@ export class ConsultaService {
       this.api + '/medcarapi/delete-consulta/' + id + '/'
     );
   }
+
+  public consultarPorUm(id): Observable<any> {
+    return this.http.get(this.api + '/consultas/' + id + '/');
+  }
 }

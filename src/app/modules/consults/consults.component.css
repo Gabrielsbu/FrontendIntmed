@@ -35,12 +35,32 @@
   .config-card {
     width: 80%;
     border-radius: 10px;
+    margin: 10px;
+  }
+
+  .config-colors {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .config-colors span {
+    color: #49b4bb;
+  }
+
+  .config-colors h3 {
+    color: #393a4a;
+  }
+
+  .config-colors span {
+    color: #49b4bb;
   }
 
   .config-header-card {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    padding-bottom: 10px;
   }
   .config-header-card div {
     display: flex;
@@ -68,68 +88,6 @@
 
   .config-buttons-card button span {
     margin-right: 9px;
-  }
-
-  .config-footer {
-    position: fixed;
-    bottom: 0;
-    left: 0;
-    z-index: 2;
-    background: #ffffff;
-    width: 100%;
-    border-top: 1px solid #e7e7ed;
-    display: flex;
-    display: unset;
-  }
-
-  .config-list {
-    margin: 0;
-    padding: 10px 0;
-
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-  }
-
-  .config-list li {
-    list-style: none;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 15px;
-    color: #6b6c7e;
-  }
-
-  .config-list li button {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 0 15px;
-    color: #6b6c7e;
-    border: 0;
-    background: none;
-  }
-
-  .config-list li button p {
-    padding: 0;
-    margin: 0;
-  }
-
-  .config-list li:active {
-    color: #49b4bb;
-  }
-
-  .example-card {
-    max-width: 400px;
-  }
-
-  .example-header-image {
-    background-image: url('https://material.angular.io/assets/img/examples/shiba1.jpg');
-    background-size: cover;
   }
 }
 

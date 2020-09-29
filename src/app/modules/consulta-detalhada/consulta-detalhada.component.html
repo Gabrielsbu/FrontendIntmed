@@ -1,8 +1,9 @@
 <div class="mobile">
   <header class="config-header">
     <mat-toolbar>
-      <mat-toolbar-row>
-        <img src="../../../assets/logo-main.png" alt="logo-consultas" />
+      <mat-toolbar-row class="config-header-details">
+        <button routerLink="/consults"><mat-icon>arrow_back</mat-icon></button>
+        <h2>Detalhar consulta</h2>
       </mat-toolbar-row>
     </mat-toolbar>
   </header>
@@ -13,39 +14,18 @@
 
   <main class="config-main">
     <span>Especialidade</span>
-    <h3>Cardiologista</h3>
+    <h3>{{ consulta.agenda.medico.especialidade.nome }}</h3>
 
     <span>Médico</span>
-    <h3>Gabriel tal tal</h3>
+    <h3>{{ consulta.agenda.medico.nome }}</h3>
 
     <span>Data</span>
-    <h3>28/07/2020</h3>
+    <h3>{{ consulta.agenda.dia | date: 'shortDate' }}</h3>
 
-    <span>Horário</span>
-    <h3>17:30</h3>
+    <span>Horario</span>
+    <h3>{{ consulta.horario }}</h3>
   </main>
   <button class="buttons">Desmarcar Consulta</button>
 
-  <footer class="config-footer">
-    <ul class="config-list">
-      <li class="active">
-        <button>
-          <mat-icon routerLinkActive>home</mat-icon>
-          <p>Início</p>
-        </button>
-      </li>
-      <li>
-        <button routerLink="/register-consult">
-          <mat-icon>add_circle_outline</mat-icon>
-          <p>Nova consulta</p>
-        </button>
-      </li>
-      <li>
-        <button>
-          <mat-icon>person_outline</mat-icon>
-          <p>Perfil</p>
-        </button>
-      </li>
-    </ul>
-  </footer>
+  <app-footer></app-footer>
 </div>

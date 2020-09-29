@@ -27,7 +27,7 @@ const routes: Routes = [
   },
 
   {
-    path: 'detail-consult',
+    path: 'detail-consult/:id',
     component: ConsultaDetalhadaComponent,
   },
 ];
