@@ -1,8 +1,8 @@
+import { Consulta } from 'src/app/cors/services/model/consultas.model';
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 
 import { ConsultaService } from './../../cors/services/service/consulta.service';
-import { ConsultaMobile } from './../../cors/services/model/consultasMobile.model';
 import Swal from 'sweetalert2';
 
 @Component({
@@ -12,7 +12,7 @@ import Swal from 'sweetalert2';
 })
 export class ConsultaDetalhadaComponent implements OnInit {
   id: string;
-  consulta: ConsultaMobile;
+  consulta: Consulta;
   constructor(
     private _Activatedroute: ActivatedRoute,
     private _serviceConsulta: ConsultaService,
@@ -20,7 +20,6 @@ export class ConsultaDetalhadaComponent implements OnInit {
   ) {
     this._Activatedroute.paramMap.subscribe((params) => {
       this.id = params.get('id');
-      console.log('id', this.id);
     });
   }
 

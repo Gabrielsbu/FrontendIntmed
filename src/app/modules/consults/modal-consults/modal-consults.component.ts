@@ -36,20 +36,31 @@ export class ModalConsultsComponent implements OnInit {
 
   ngOnInit(): void {
     this.buscarConsultas();
+    this.getEspecialidades();
     this.consultaForm = this._formBuilder.group({
       agenda: ['', [Validators.required]],
       especialidade: ['', Validators.required],
       dia: ['', Validators.required],
       horario: ['', [Validators.required]],
     });
-    this.getEspecialidades();
+  }
+
+  public getEspecialidades() {
+    this._especialidadeService.buscarEspecialidades().subscribe(
+      (data) => {
+        this.especialidades = data;
+        console.log('algo');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
   }
 
   buscarConsultas() {
     this._consultaService.buscarAgenda().subscribe(
       (data) => {
         this.agendas = data;
-        console.log('Agendas retornadas: ', data);
       },
       (error) => {
         console.log(error);
@@ -80,17 +91,6 @@ export class ModalConsultsComponent implements OnInit {
           );
         }
       );
-  }
-
-  public getEspecialidades() {
-    this._especialidadeService.buscarEspecialidades().subscribe(
-      (data) => {
-        this.especialidades = data;
-      },
-      (error) => {
-        console.log(error);
-      }
-    );
   }
 
   public getMedicosPorEspecialidade(especialidade: Especialidade) {

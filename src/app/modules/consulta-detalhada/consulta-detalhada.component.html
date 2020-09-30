@@ -14,13 +14,13 @@
 
   <main class="config-main">
     <span>Especialidade</span>
-    <h3>{{ consulta.agenda.medico.especialidade.nome }}</h3>
+    <h3>{{ consulta.medico.especialidade.nome }}</h3>
 
     <span>Médico</span>
-    <h3>{{ consulta.agenda.medico.nome }}</h3>
+    <h3>{{ consulta.medico.nome }}</h3>
 
     <span>Data</span>
-    <h3>{{ consulta.agenda.dia | date: 'shortDate' }}</h3>
+    <h3>{{ consulta.dia | date: 'shortDate' }}</h3>
 
     <span>Horario</span>
     <h3>{{ consulta.horario }}</h3>

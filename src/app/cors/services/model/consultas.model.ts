@@ -1,6 +1,8 @@
+import { Medico } from './medico.model';
 import { Time } from '@angular/common';
-import { Agenda } from './agenda.model';
 export class Consulta {
-  agenda_id: Agenda;
+  id: number;
+  dia: Date;
   horario: Time;
+  medico: Medico;
 }
