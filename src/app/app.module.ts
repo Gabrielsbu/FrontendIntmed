@@ -16,6 +16,8 @@ import { ConsultsComponent } from './modules/consults/consults.component';
 import { CadastrarConsultaMobileComponent } from './modules/cadastrar-consulta-mobile/cadastrar-consulta-mobile.component';
 import { ConsultaDetalhadaComponent } from './modules/consulta-detalhada/consulta-detalhada.component';
 import { ModalConsultsComponent } from './modules/consults/modal-consults/modal-consults.component';
+import { FooterComponent } from './shared/footer/footer.component';
+import { HeaderComponent } from './shared/header/header.component';
 
 //interceptors
 import { JwtInterceptor } from './cors/helpers/jwt.interceptor';
@@ -31,8 +33,6 @@ import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatTableModule } from '@angular/material/table';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatSelectModule } from '@angular/material/select';
-import { FooterComponent } from './shared/footer/footer.component';
-import { HeaderComponent } from './shared/header/header.component';
 
 @NgModule({
   declarations: [

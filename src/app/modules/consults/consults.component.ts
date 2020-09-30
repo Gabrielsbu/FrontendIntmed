@@ -7,6 +7,8 @@ import { ConsultaService } from './../../cors/services/service/consulta.service'
 import { Consulta } from './../../cors/services/model/consultas.model';
 import { ConsultaMobile } from './../../cors/services/model/consultasMobile.model';
 
+import Swal from 'sweetalert2';
+
 export interface PeriodicElement {
   especialidade: string;
   profissional: string;
@@ -85,6 +87,11 @@ export class ConsultsComponent implements OnInit {
   excluirConsulta(id) {
     this._buscarConsultas.deletarConsulta(id).subscribe(
       (data) => {
+        Swal.fire(
+          'Sua consulta foi desmarcada com sucesso!',
+          'Obrigado',
+          'success'
+        );
         this.buscarConsultas();
       },
       (error) => {

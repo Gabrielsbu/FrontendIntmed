@@ -25,7 +25,9 @@
     <span>Horario</span>
     <h3>{{ consulta.horario }}</h3>
   </main>
-  <button class="buttons">Desmarcar Consulta</button>
+  <button class="buttons" (click)="excluirConsulta()">
+    Desmarcar Consulta
+  </button>
 
   <app-footer></app-footer>
 </div>
