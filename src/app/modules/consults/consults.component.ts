@@ -3,8 +3,10 @@ import { Component, OnInit } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 
 import { ModalConsultsComponent } from './modal-consults/modal-consults.component';
+import { AuthenticationService } from './../../cors/services/service/authentication.service';
 import { ConsultaService } from './../../cors/services/service/consulta.service';
 import { Consulta } from './../../cors/services/model/consultas.model';
+import { Usuario } from './../../cors/services/model/usuario.model';
 
 import Swal from 'sweetalert2';
 
@@ -22,6 +24,7 @@ export interface PeriodicElement {
 })
 export class ConsultsComponent implements OnInit {
   consulta: Consulta[];
+  usuarioLogado: Usuario;
   displayedColumns: string[] = [
     'especialidade',
     'profissional',
@@ -34,7 +37,8 @@ export class ConsultsComponent implements OnInit {
   constructor(
     public dialog: MatDialog,
     private _router: Router,
-    private _buscarConsultas: ConsultaService
+    private _buscarConsultas: ConsultaService,
+    private _buscarUsuario: AuthenticationService
   ) {}
 
   openDialog() {
@@ -53,6 +57,7 @@ export class ConsultsComponent implements OnInit {
   ngOnInit(): void {
     this.buscarConsultas();
     this.buscarConsultasMobile();
+    this.buscarUsuario();
   }
 
   logout() {
@@ -96,6 +101,18 @@ export class ConsultsComponent implements OnInit {
       (error) => {
         console.log(error);
         console.log(id);
+      }
+    );
+  }
+
+  buscarUsuario() {
+    this._buscarUsuario.buscarUsuario().subscribe(
+      (data) => {
+        this.usuarioLogado = data;
+        console.log(data);
+      },
+      (error) => {
+        console.log(error);
       }
     );
   }

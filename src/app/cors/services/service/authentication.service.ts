@@ -34,4 +34,8 @@ export class AuthenticationService {
       this.httpOptions
     );
   }
+
+  public buscarUsuario(): Observable<any> {
+    return this.http.get<any>('http://127.0.0.1:8000/auth/user');
+  }
 }
