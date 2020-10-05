@@ -5,5 +5,5 @@ export interface Agenda {
   medico: Medico;
   dia: Date;
   id: number;
-  horarios: Time;
+  horarios: Time[];
 }

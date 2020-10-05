@@ -90,6 +90,7 @@ export class ConsultsComponent implements OnInit {
           'Obrigado',
           'success'
         );
+        this.consulta = this.consulta.filter((e) => e.id != id);
         this.buscarConsultas();
       },
       (error) => {

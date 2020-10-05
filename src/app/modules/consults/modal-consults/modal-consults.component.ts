@@ -1,14 +1,14 @@
-import { Component, Inject, OnInit } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { MatDialogRef } from '@angular/material/dialog';
+import Swal from 'sweetalert2';
 
 import { ConsultaService } from './../../../cors/services/service/consulta.service';
-import { Agenda } from './../../../cors/services/model/agenda.model';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
-
-import { Especialidade } from './../../../cors/services/model/especialidade.model';
 import { EspecialidadeService } from './../../../cors/services/service/especialidade.service';
 
-import Swal from 'sweetalert2';
-import { MatDialogRef, MAT_DIALOG_DATA } from '@angular/material/dialog';
+import { Agenda } from './../../../cors/services/model/agenda.model';
+import { Especialidade } from './../../../cors/services/model/especialidade.model';
+import { Medico } from './../../../cors/services/model/medico.model';
 import { Consulta } from 'src/app/cors/services/model/consultas.model';
 
 @Component({
@@ -19,37 +19,50 @@ import { Consulta } from 'src/app/cors/services/model/consultas.model';
 export class ModalConsultsComponent implements OnInit {
   agendas: Agenda[];
   especialidades: Especialidade[];
+  medicos: Medico[];
 
   public consultaForm: FormGroup;
+  public agendaForm: FormGroup;
 
-  medicosPorEspecialidade: Agenda[];
+  medicosPorEspecialidade: Medico[];
+  agendaPorMedico: Agenda[];
   medicoSelecionado: Agenda;
-
-  medico: string;
+  agendaSelecionada: Agenda;
 
   constructor(
     private _consultaService: ConsultaService,
-    private _formBuilder: FormBuilder,
     private _especialidadeService: EspecialidadeService,
+    private _formBuilder: FormBuilder,
     public dialogRef: MatDialogRef<ModalConsultsComponent>
   ) {}
 
   ngOnInit(): void {
     this.buscarConsultas();
     this.getEspecialidades();
+    this.getMedicos();
+
     this.consultaForm = this._formBuilder.group({
-      agenda: ['', [Validators.required]],
+      horario: ['', Validators.required],
+      profissional: ['', [Validators.required]],
       especialidade: ['', Validators.required],
       dia: ['', Validators.required],
-      horario: ['', [Validators.required]],
     });
   }
-
   public getEspecialidades() {
     this._especialidadeService.buscarEspecialidades().subscribe(
       (data) => {
         this.especialidades = data;
-        console.log('algo');
+      },
+      (error) => {
+        console.log(error);
+      }
+    );
+  }
+
+  public getMedicos() {
+    this._especialidadeService.buscarMedicos().subscribe(
+      (data) => {
+        this.medicos = data;
       },
       (error) => {
         console.log(error);
@@ -68,10 +81,23 @@ export class ModalConsultsComponent implements OnInit {
     );
   }
 
-  criarConsulta() {
-    let agenda: Agenda = this.consultaForm.controls['agenda'].value;
-    let horario: string = this.consultaForm.controls['horario'].value;
+  public getMedicosPorEspecialidade(especialidade: Especialidade) {
+    this.medicosPorEspecialidade = this.medicos.filter(
+      (e) => e.especialidade.nome === especialidade.nome
+    );
+  }
 
+  public getAgendaPorMedicos(medico: Medico) {
+    this.agendaPorMedico = this.agendas.filter(
+      (e) => e.medico.nome === medico.nome
+    );
+  }
+
+  criarConsulta() {
+    const horario: string = this.consultaForm.controls['horario'].value;
+    const agenda: Agenda = this.consultaForm.controls['dia'].value;
+
+    console.log('Minha agenda: ' + JSON.stringify(agenda));
     this._consultaService
       .criarConsulta({ agenda: agenda.id, horario: horario })
       .subscribe(
@@ -91,11 +117,5 @@ export class ModalConsultsComponent implements OnInit {
           );
         }
       );
-  }
-
-  public getMedicosPorEspecialidade(especialidade: Especialidade) {
-    this.medicosPorEspecialidade = this.agendas.filter(
-      (e) => e.medico.especialidade.nome === especialidade.nome
-    );
   }
 }

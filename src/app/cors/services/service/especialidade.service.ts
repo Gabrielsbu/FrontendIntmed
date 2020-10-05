@@ -13,4 +13,7 @@ export class EspecialidadeService {
   public buscarEspecialidades(): Observable<any> {
     return this._http.get(this.apiUrl + '/especialidades');
   }
+  public buscarMedicos(): Observable<any> {
+    return this._http.get(this.apiUrl + '/medicos');
+  }
 }

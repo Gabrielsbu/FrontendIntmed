@@ -40,7 +40,7 @@
     margin-top: 30px;
   }
 
-  .buttons button:last-child {
+  .buttons button:first-child {
     height: 40px;
     border-radius: 8px;
     background: #ffffff;
@@ -50,10 +50,9 @@
     font-weight: bold;
     cursor: pointer;
     outline: 0;
-    margin-top: 30px;
   }
 
-  .buttons button:first-child {
+  .buttons button:last-child {
     height: 40px;
     border-radius: 8px;
     background: #49b4bb;
@@ -63,6 +62,7 @@
     font-weight: bold;
     cursor: pointer;
     outline: 0;
+    margin-top: 30px;
   }
 
   .buttons button:hover {
