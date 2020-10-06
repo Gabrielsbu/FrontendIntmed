@@ -1,4 +1,4 @@
-## Aplicação Front-end desenvolvida com Angular 10.
+## Aplicação Medicar, desafio para empresa Intmed, Backend desenvolvido com Django Rest e Frontend desenvolvido com Angular 10.
 ### Sistema de controle de consultas médicas.
 
 ### Primeiro precisamos realizar algumas configurações certo?
