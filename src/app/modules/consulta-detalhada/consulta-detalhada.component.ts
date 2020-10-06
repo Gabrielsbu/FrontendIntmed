@@ -13,6 +13,7 @@ import Swal from 'sweetalert2';
 export class ConsultaDetalhadaComponent implements OnInit {
   id: string;
   consulta: Consulta;
+
   constructor(
     private _Activatedroute: ActivatedRoute,
     private _serviceConsulta: ConsultaService,

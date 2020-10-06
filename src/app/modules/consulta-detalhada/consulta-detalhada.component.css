@@ -3,19 +3,20 @@
 .mat-toolbar {
   background: #49b4bb;
 }
-.config-header-details {
+
+.config-toolbar {
   display: flex;
   align-items: center;
   color: #ffffff;
 }
-.config-header-details button {
+.config-toolbar button {
   background: none;
   border: 0;
   color: #ffffff;
   margin-right: 15px;
 }
 
-.config-header-details button {
+.config-toolbar button {
   background: none;
   border: 0;
 }
@@ -26,13 +27,6 @@
   margin: 40px 0 20px 20px;
   color: #393a4a;
   font-weight: 500;
-}
-
-form {
-  display: flex;
-  flex-direction: column;
-  width: 100%;
-  height: 100%;
 }
 
 .config-main {
@@ -50,57 +44,4 @@ form {
   font-weight: bold;
   cursor: pointer;
   outline: 0;
-}
-
-.config-footer {
-  position: fixed;
-  bottom: 0;
-  left: 0;
-  z-index: 2;
-  background: #ffffff;
-  width: 100%;
-  border-top: 1px solid #e7e7ed;
-  display: flex;
-  display: unset;
-}
-
-.config-list {
-  margin: 0;
-  padding: 10px 0;
-
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-}
-
-.config-list li {
-  list-style: none;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 15px;
-  color: #6b6c7e;
-}
-
-.config-list li button {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-  padding: 0 15px;
-  color: #6b6c7e;
-  border: 0;
-  background: none;
-}
-
-.config-list li button p {
-  padding: 0;
-  margin: 0;
-}
-
-.config-list li:active {
-  color: #49b4bb;
 }

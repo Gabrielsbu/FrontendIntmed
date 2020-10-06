@@ -1,33 +1,27 @@
-<div class="mobile">
-  <header class="config-header">
-    <mat-toolbar>
-      <mat-toolbar-row class="config-header-details">
-        <button routerLink="/consults"><mat-icon>arrow_back</mat-icon></button>
-        <h2>Detalhar consulta</h2>
-      </mat-toolbar-row>
-    </mat-toolbar>
-  </header>
+<mat-toolbar>
+  <mat-toolbar-row class="config-toolbar">
+    <button routerLink="/consults"><mat-icon>arrow_back</mat-icon></button>
+    <h2>Detalhar consulta</h2>
+  </mat-toolbar-row>
+</mat-toolbar>
 
-  <div class="title">
-    <h1>Detalhes da consulta</h1>
-  </div>
-
-  <main class="config-main">
-    <span>Especialidade</span>
-    <h3>{{ consulta.medico.especialidade.nome }}</h3>
-
-    <span>Médico</span>
-    <h3>{{ consulta.medico.nome }}</h3>
-
-    <span>Data</span>
-    <h3>{{ consulta.dia | date: 'shortDate' }}</h3>
-
-    <span>Horario</span>
-    <h3>{{ consulta.horario }}</h3>
-  </main>
-  <button class="buttons" (click)="excluirConsulta()">
-    Desmarcar Consulta
-  </button>
-
-  <app-footer></app-footer>
+<div class="title">
+  <h1>Detalhes da consulta</h1>
 </div>
+
+<main class="config-main">
+  <span>Especialidade</span>
+  <h3>{{ consulta.medico.especialidade.nome }}</h3>
+
+  <span>Médico</span>
+  <h3>{{ consulta.medico.nome }}</h3>
+
+  <span>Data</span>
+  <h3>{{ consulta.dia | date: 'shortDate' }}</h3>
+
+  <span>Horario</span>
+  <h3>{{ consulta.horario }}</h3>
+</main>
+<button class="buttons" (click)="excluirConsulta()">Desmarcar Consulta</button>
+
+<app-footer></app-footer>

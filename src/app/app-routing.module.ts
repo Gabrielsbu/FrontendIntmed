@@ -25,7 +25,7 @@ const routes: Routes = [
     path: 'register-consult',
     component: CadastrarConsultaMobileComponent,
   },
-
+  //Rota necessária para fazer a busca detalhada de uma consulta.
   {
     path: 'detail-consult/:id',
     component: ConsultaDetalhadaComponent,

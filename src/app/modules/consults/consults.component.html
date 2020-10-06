@@ -3,21 +3,17 @@
   <app-header></app-header>
 
   <div class="title">
-    <h1>Consulta marcadas</h1>
+    <h1>Consultas marcadas</h1>
     <span class="config-logout">
       <h6>{{ usuarioLogado.username }}</h6>
-      <button>Sair</button>
+      <button (click)="logout()">Sair</button>
     </span>
   </div>
 
   <main class="config-main">
-    <mat-card
-      class="example-card"
-      class="config-card"
-      *ngFor="let consult of consulta"
-    >
+    <mat-card class="config-card" *ngFor="let consult of consulta">
       <mat-card-header class="config-header-card">
-        <div class="config-colors">
+        <div class="config-infos">
           <h3>
             <strong>
               {{ consult.medico.especialidade.nome }}
@@ -46,66 +42,64 @@
 <!-- Desktop -->
 <div class="desktop">
   <mat-toolbar class="container-header">
-    <mat-toolbar-row class="content">
+    <mat-toolbar-row class="content-header">
       <span
         ><img src="../../../assets/logo-main.png" alt="logo-consultas"
       /></span>
 
-      <div class="spacer">
+      <div class="config-logout">
         <h4>{{ usuarioLogado.username }}</h4>
         <a (click)="logout()">Desconectar</a>
       </div>
     </mat-toolbar-row>
   </mat-toolbar>
 
-  <div class="content-table">
-    <span class="header-table">
-      <h2>Consultar Clínica</h2>
-      <button (click)="openDialog()">
-        <mat-icon>add</mat-icon> <span>Nova consulta</span>
-      </button>
-    </span>
+  <span class="title">
+    <h2>Consulta Clínica</h2>
+    <button (click)="openDialog()">
+      <mat-icon>add</mat-icon> <span>Nova consulta</span>
+    </button>
+  </span>
 
-    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
-      <!-- Name Column -->
-      <ng-container matColumnDef="especialidade">
-        <th mat-header-cell *matHeaderCellDef>Especialidade</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.medico.especialidade.nome }}
-        </td>
-      </ng-container>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+    <!-- Name Column -->
+    <ng-container matColumnDef="especialidade">
+      <th mat-header-cell *matHeaderCellDef>Especialidade</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.medico.especialidade.nome }}
+      </td>
+    </ng-container>
 
-      <ng-container matColumnDef="profissional">
-        <th mat-header-cell *matHeaderCellDef>Profissional</th>
-        <td mat-cell *matCellDef="let element">
-          {{ element.medico.nome }}
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="profissional">
+      <th mat-header-cell *matHeaderCellDef>Profissional</th>
+      <td mat-cell *matCellDef="let element">
+        {{ element.medico.nome }}
+      </td>
+    </ng-container>
 
-      <!-- Weight Column -->
-      <ng-container matColumnDef="data">
-        <th mat-header-cell *matHeaderCellDef>Data</th>
-        <td mat-cell *matCellDef="let element">{{ element.dia }}</td>
-      </ng-container>
+    <!-- Weight Column -->
+    <ng-container matColumnDef="data">
+      <th mat-header-cell *matHeaderCellDef>Data</th>
+      <td mat-cell *matCellDef="let element">{{ element.dia }}</td>
+    </ng-container>
 
-      <!-- Symbol Column -->
-      <ng-container matColumnDef="hora">
-        <th mat-header-cell *matHeaderCellDef>Hora</th>
-        <td mat-cell *matCellDef="let element">{{ element.horario }}</td>
-      </ng-container>
+    <!-- Symbol Column -->
+    <ng-container matColumnDef="hora">
+      <th mat-header-cell *matHeaderCellDef>Hora</th>
+      <td mat-cell *matCellDef="let element">{{ element.horario }}</td>
+    </ng-container>
 
-      <ng-container matColumnDef="acoes">
-        <th mat-header-cell *matHeaderCellDef></th>
-        <td mat-cell *matCellDef="let element">
-          <button (click)="excluirConsulta(element.id)">
-            <mat-icon>close</mat-icon>
-            <span>Desmarcar</span>
-          </button>
-        </td>
-      </ng-container>
+    <ng-container matColumnDef="acoes">
+      <th mat-header-cell *matHeaderCellDef></th>
+      <td mat-cell *matCellDef="let element">
+        <button (click)="excluirConsulta(element.id)">
+          <mat-icon>close</mat-icon>
+          <span>Desmarcar</span>
+        </button>
+      </td>
+    </ng-container>
 
-      <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-      <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
-    </table>
-  </div>
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
+  </table>
 </div>

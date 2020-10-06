@@ -1,64 +1,62 @@
-<div class="container">
-  <h2>Nova Consulta</h2>
+<h2>Nova Consulta</h2>
 
-  <form [formGroup]="consultaForm">
-    <mat-form-field>
-      <mat-label>Especialidade</mat-label>
-      <mat-select
-        formControlName="especialidade"
-        (selectionChange)="getMedicosPorEspecialidade($event.value)"
+<form [formGroup]="consultaForm">
+  <mat-form-field>
+    <mat-label>Especialidade</mat-label>
+    <mat-select
+      formControlName="especialidade"
+      (selectionChange)="getMedicosPorEspecialidade($event.value)"
+    >
+      <mat-option
+        *ngFor="let especialidade of especialidades"
+        [value]="especialidade"
       >
-        <mat-option
-          *ngFor="let especialidade of especialidades"
-          [value]="especialidade"
-        >
-          {{ especialidade.nome }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+        {{ especialidade.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Profissional</mat-label>
-      <mat-select
-        formControlName="profissional"
-        (selectionChange)="getAgendaPorMedicos($event.value)"
+  <mat-form-field>
+    <mat-label>Profissional</mat-label>
+    <mat-select
+      formControlName="profissional"
+      (selectionChange)="getAgendaPorMedicos($event.value)"
+    >
+      <mat-option
+        *ngFor="let medico of medicosPorEspecialidade"
+        [value]="medico"
       >
-        <mat-option
-          *ngFor="let medico of medicosPorEspecialidade"
-          [value]="medico"
-        >
-          {{ medico.nome }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+        {{ medico.nome }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Dia</mat-label>
-      <mat-select
-        formControlName="dia"
-        (selectionChange)="agendaSelecionada = $event.value"
+  <mat-form-field>
+    <mat-label>Dia</mat-label>
+    <mat-select
+      formControlName="dia"
+      (selectionChange)="agendaSelecionada = $event.value"
+    >
+      <mat-option *ngFor="let agenda of agendaPorMedico" [value]="agenda">
+        {{ agenda.dia }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
+
+  <mat-form-field *ngIf="!!agendaSelecionada">
+    <mat-label>Horarios</mat-label>
+    <mat-select formControlName="horario">
+      <mat-option
+        *ngFor="let horario of agendaSelecionada.horarios"
+        [value]="horario"
       >
-        <mat-option *ngFor="let agenda of agendaPorMedico" [value]="agenda">
-          {{ agenda.dia }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
+        {{ horario }}
+      </mat-option>
+    </mat-select>
+  </mat-form-field>
 
-    <mat-form-field *ngIf="!!agendaSelecionada">
-      <mat-label>Horarios</mat-label>
-      <mat-select formControlName="horario">
-        <mat-option
-          *ngFor="let horario of agendaSelecionada.horarios"
-          [value]="horario"
-        >
-          {{ horario }}
-        </mat-option>
-      </mat-select>
-    </mat-form-field>
-
-    <div class="buttons">
-      <button mat-dialog-close>Cancelar</button>
-      <button (click)="criarConsulta()">Confirmar</button>
-    </div>
-  </form>
-</div>
+  <div class="buttons">
+    <button mat-dialog-close>Cancelar</button>
+    <button (click)="criarConsulta()">Confirmar</button>
+  </div>
+</form>

@@ -9,12 +9,12 @@
     height: 100%;
   }
 
-  .config-header {
+  .config-img {
     display: flex;
     justify-content: center;
   }
 
-  .config-header img {
+  .config-img img {
     flex-shrink: 0;
     width: 13rem;
     height: 4rem;
@@ -59,11 +59,6 @@
     outline: 0;
     height: 2.5rem;
   }
-
-  .buttons button:hover {
-    opacity: 0.8;
-    transition: 0.3s;
-  }
 }
 
 @media (min-width: 769px) {
@@ -76,7 +71,7 @@
     justify-content: center;
   }
 
-  .config-header img {
+  .config-img img {
     flex-shrink: 0;
     width: 11rem;
     height: auto;

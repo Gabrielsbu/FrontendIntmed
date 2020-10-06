@@ -1,8 +1,9 @@
-import { AuthenticationService } from './../../cors/services/service/authentication.service';
-import { Router } from '@angular/router';
-
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Router } from '@angular/router';
+
+import { AuthenticationService } from './../../cors/services/service/authentication.service';
+
 import Swal from 'sweetalert2';
 
 @Component({
@@ -15,7 +16,7 @@ export class RegisterComponent implements OnInit {
   hide = true;
   hideConfirm = true;
 
-  //Criado meu form register do tipo FormGroup
+  // Iniciando minha variável do tipo FormGroup
   public registerForm: FormGroup;
 
   constructor(
@@ -25,6 +26,7 @@ export class RegisterComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
+    // Iniciando meu formulário
     this.registerForm = this.formBuilder.group({
       username: ['', [Validators.required]],
       password1: ['', [Validators.required]],
