@@ -16,12 +16,38 @@
     width: 10rem;
   }
 
-  .title h1 {
+  .title {
     display: flex;
-    text-align: start;
-    margin: 40px 0 20px 20px;
+    justify-content: space-between;
+    align-items: center;
+    padding: 30px 30px;
+  }
+
+  .title h1 {
+    margin: 0;
+    padding: 0;
+    display: flex;
     color: #393a4a;
     font-weight: 500;
+  }
+
+  .config-logout {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .config-logout button {
+    border: 0;
+    background: rgba(221, 218, 218, 0.6);
+    height: 25px;
+    border-radius: 50px;
+    width: 70px;
+  }
+
+  .config-logout h6 {
+    margin: 0 15px;
+    font-size: 16px;
   }
 
   .config-main {

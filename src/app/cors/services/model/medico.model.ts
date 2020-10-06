@@ -1,6 +1,6 @@
 import { Especialidade } from './especialidade.model';
 
-export class Medico {
+export interface Medico {
   id: number;
   nome: string;
   CRM: number;

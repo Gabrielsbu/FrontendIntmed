@@ -42,17 +42,19 @@
         <mat-label>Confirmar senha</mat-label>
         <input
           matInput
-          [type]="hide ? 'password' : 'text'"
+          [type]="hideConfirm ? 'password' : 'text'"
           formControlName="password2"
         />
         <button
           mat-icon-button
           matSuffix
-          (click)="hide = !hide"
+          (click)="hideConfirm = !hideConfirm"
           [attr.aria-label]="'Hide password'"
-          [attr.aria-pressed]="hide"
+          [attr.aria-pressed]="hideConfirm"
         >
-          <mat-icon>{{ hide ? 'visibility_off' : 'visibility' }}</mat-icon>
+          <mat-icon>{{
+            hideConfirm ? 'visibility_off' : 'visibility'
+          }}</mat-icon>
         </button>
       </mat-form-field>
     </form>

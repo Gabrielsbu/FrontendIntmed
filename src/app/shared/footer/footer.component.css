@@ -8,6 +8,7 @@
   border-top: 1px solid #e7e7ed;
   display: flex;
   display: unset;
+  height: 60px;
 }
 
 .config-list {

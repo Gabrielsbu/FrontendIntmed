@@ -11,12 +11,16 @@ import Swal from 'sweetalert2';
   styleUrls: ['./register.component.css'],
 })
 export class RegisterComponent implements OnInit {
+  //variáveis para ocultar o password
   hide = true;
+  hideConfirm = true;
+
+  //Criado meu form register do tipo FormGroup
   public registerForm: FormGroup;
 
   constructor(
     private formBuilder: FormBuilder,
-    private rest: AuthenticationService,
+    private _authService: AuthenticationService,
     private router: Router
   ) {}
 
@@ -29,8 +33,9 @@ export class RegisterComponent implements OnInit {
     });
   }
 
+  // Método para cadastrar usuário.
   createUser() {
-    this.rest.criarUsuario(this.registerForm.value).subscribe(
+    this._authService.criarUsuario(this.registerForm.value).subscribe(
       (data) => {
         Swal.fire(
           'Cadastro realizado com sucesso!',

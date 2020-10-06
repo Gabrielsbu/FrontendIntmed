@@ -7,7 +7,7 @@
       <mat-label>Especialidade</mat-label>
       <mat-select
         formControlName="especialidade"
-        (selectionChange)="getMedicosPorEspecialidade($event.value)"
+        (selectionChange)="buscarMedicosPorEspecialidade($event.value)"
       >
         <mat-option
           *ngFor="let especialidade of especialidades"
@@ -22,7 +22,7 @@
       <mat-label>Profissional</mat-label>
       <mat-select
         formControlName="profissional"
-        (selectionChange)="getAgendaPorMedicos($event.value)"
+        (selectionChange)="buscarAgendaPorMedicos($event.value)"
       >
         <mat-option
           *ngFor="let medico of medicosPorEspecialidade"

@@ -6,7 +6,9 @@ import Swal from 'sweetalert2';
 
 import { ConsultaService } from './../../cors/services/service/consulta.service';
 import { EspecialidadeService } from './../../cors/services/service/especialidade.service';
+import { AuthenticationService } from './../../cors/services/service/authentication.service';
 
+import { Usuario } from './../../cors/services/model/usuario.model';
 import { Agenda } from './../../cors/services/model/agenda.model';
 import { Especialidade } from './../../cors/services/model/especialidade.model';
 import { Medico } from './../../cors/services/model/medico.model';
@@ -18,28 +20,28 @@ import { Consulta } from 'src/app/cors/services/model/consultas.model';
   styleUrls: ['./cadastrar-consulta-mobile.component.css'],
 })
 export class CadastrarConsultaMobileComponent implements OnInit {
+  public consultaForm: FormGroup;
+
   agendas: Agenda[];
   especialidades: Especialidade[];
   medicos: Medico[];
 
-  public consultaForm: FormGroup;
-
   medicosPorEspecialidade: Medico[];
   agendaPorMedico: Agenda[];
-  medicoSelecionado: Agenda;
   agendaSelecionada: Agenda;
 
   constructor(
     private _consultaService: ConsultaService,
     private _especialidadeService: EspecialidadeService,
     private _formBuilder: FormBuilder,
-    private _router: Router
+    private _router: Router,
+    private _buscarUsuario: AuthenticationService
   ) {}
 
   ngOnInit(): void {
     this.buscarConsultas();
-    this.getEspecialidades();
-    this.getMedicos();
+    this.buscarEspecialidades();
+    this.buscarMedicos();
 
     this.consultaForm = this._formBuilder.group({
       horario: ['', Validators.required],
@@ -49,7 +51,7 @@ export class CadastrarConsultaMobileComponent implements OnInit {
     });
   }
 
-  public getEspecialidades() {
+  buscarEspecialidades() {
     this._especialidadeService.buscarEspecialidades().subscribe(
       (data) => {
         this.especialidades = data;
@@ -60,7 +62,7 @@ export class CadastrarConsultaMobileComponent implements OnInit {
     );
   }
 
-  public getMedicos() {
+  buscarMedicos() {
     this._especialidadeService.buscarMedicos().subscribe(
       (data) => {
         this.medicos = data;
@@ -82,13 +84,13 @@ export class CadastrarConsultaMobileComponent implements OnInit {
     );
   }
 
-  public getMedicosPorEspecialidade(especialidade: Especialidade) {
+  buscarMedicosPorEspecialidade(especialidade: Especialidade) {
     this.medicosPorEspecialidade = this.medicos.filter(
       (e) => e.especialidade.nome === especialidade.nome
     );
   }
 
-  public getAgendaPorMedicos(medico: Medico) {
+  buscarAgendaPorMedicos(medico: Medico) {
     this.agendaPorMedico = this.agendas.filter(
       (e) => e.medico.nome === medico.nome
     );
@@ -103,11 +105,7 @@ export class CadastrarConsultaMobileComponent implements OnInit {
       .criarConsulta({ agenda: agenda.id, horario: horario })
       .subscribe(
         (data: Consulta) => {
-          Swal.fire(
-            'Cadastro realizado com sucesso!',
-            `Seja bem vindo a Medicar`,
-            'success'
-          );
+          Swal.fire('Consulta criada com sucesso!', ``, 'success');
           this._router.navigate(['/consults']);
         },
         (error) => {

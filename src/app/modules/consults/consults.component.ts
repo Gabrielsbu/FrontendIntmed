@@ -100,7 +100,6 @@ export class ConsultsComponent implements OnInit {
       },
       (error) => {
         console.log(error);
-        console.log(id);
       }
     );
   }
@@ -109,7 +108,6 @@ export class ConsultsComponent implements OnInit {
     this._buscarUsuario.buscarUsuario().subscribe(
       (data) => {
         this.usuarioLogado = data;
-        console.log(data);
       },
       (error) => {
         console.log(error);

@@ -1,3 +1,3 @@
-export class Especialidade {
+export interface Especialidade {
   nome: string;
 }
