@@ -2,7 +2,7 @@
 ### Sistema de controle de consultas médicas.
 
 
-align="center"![gifcomputacao](https://github.com/Gabrielsbu/Intmed-Backend/blob/master/comecando.gif)
+                                   ![gifcomputacao](https://github.com/Gabrielsbu/Intmed-Backend/blob/master/comecando.gif)
  
  
 ### Primeiro precisamos realizar algumas configurações.
