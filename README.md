@@ -5,8 +5,8 @@
 
 ### Vale ressaltar que estou ultilizando Windows 10, se tiver utilizando linux, haverá algumas alterações apenas na forma de ativação do seu ambiente virtual, certo?
 
-###<p align="center">
-Primeiro precisamos realizar algumas configurações.
+<p align="center">
+###Primeiro precisamos realizar algumas configurações.
 </p>
 
 ### Backend:
