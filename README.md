@@ -5,9 +5,7 @@
 
 ### Vale ressaltar que estou ultilizando Windows 10, se tiver utilizando linux, haverá algumas alterações apenas na forma de ativação do seu ambiente virtual, certo?
 
-<p align="center", fontSize="170px">
-Primeiro precisamos realizar algumas configurações.
-</p>
+### Primeiro precisamos realizar algumas configurações.
 
 ### Backend:
 #### 1) Crie um novo ambiente virtual, execute o seguinte comando: python -m venv "nome do ambiente", ao criar, irei disponibilizar um arquivo chamando Requiriment.txt, nele você encontrará todas as depêndencias necessárias para o projeto funcionar.
