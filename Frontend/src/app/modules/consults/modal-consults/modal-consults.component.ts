@@ -97,7 +97,6 @@ export class ModalConsultsComponent implements OnInit {
     const horario: string = this.consultaForm.controls['horario'].value;
     const agenda: Agenda = this.consultaForm.controls['dia'].value;
 
-    console.log('Minha agenda: ' + JSON.stringify(agenda));
     this._consultaService
       .criarConsulta({ agenda: agenda.id, horario: horario })
       .subscribe(
