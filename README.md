@@ -1,9 +1,9 @@
 # Sistema de controle de consultas médicas.
 ## Aplicação Medicar, desafio para empresa Intmed, Backend desenvolvido com Django Rest e Frontend desenvolvido com Angular 10.
 
-![gifcomputacao](https://github.com/Gabrielsbu/Intmed-Backend/blob/master/comecando.gif)
-
 ### Vale ressaltar que estou ultilizando Windows 10, se tiver utilizando linux, haverá algumas alterações apenas na forma de ativação do seu ambiente virtual, certo?
+
+![gifcomputacao](https://github.com/Gabrielsbu/Intmed-Backend/blob/master/comecando.gif)
 
 ### Primeiro precisamos realizar algumas configurações.
 
