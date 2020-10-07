@@ -10,7 +10,7 @@
 ### Backend:
 #### 1) Crie um novo ambiente virtual, execute o seguinte comando: ```python -m venv "nome_do_ambiente"```, ao criar, tem um arquivo chamado requirement.txt, nele você encontrará todas as depêndencias necessárias.
 #### 2) No seu ambiente virtual, abra a pasta chamada scripts, utilizando o terminal e execute o comando: ```activate```, assim sua VENV(Ambiente virtual) estará ativo. Em seguida, dentro da sua VENV e na raíz do projeto, execute o comando: ```pip freeze -r requirement.txt```
-#### 3) Após isso, tudo certo, dentro da pasta da minha aplicação, execute o comando, python manage.py makemigrations, em seguida, execute: ```python manage.py migrate``` para criar seu banco de dados.
+#### 3) Após isso, tudo certo, dentro da pasta da aplicação, execute o comando, python manage.py makemigrations, em seguida, execute: ```python manage.py migrate``` para criar seu banco de dados.
 #### 4) Você deve criar uma conta na Interface Administrativa para cadastrar, especialidades, médicos e agendas. execute o comando ```python manage.py createsuperuser``` e cadastre.
 #### 5) Agora com todo nosso ambiente pronto e instalado, execute o comando ```python manage.py runserver```, e finalmente a api estará pronta para ser consumida.
 
