@@ -30,3 +30,4 @@
 ### Tarefas pendentes
 #### - Backend - Desenvolver os filtros no Backend por falta de prática com o framework, os filtros que utilizei forão criados no frontend.
 #### - Frontend - Fazer o usuário poder logar com o username ou com o Email, atualmente só está o email.
+#### - Backend - Verificações com a hora, por conta que eu não consegui resolver o problema das 3 horas de diferença e eu não queria enviar com esse bug.
