@@ -2,11 +2,11 @@
 ### Sistema de controle de consultas médicas.
 
 ![gifcomputacao](https://github.com/Gabrielsbu/Intmed-Backend/blob/master/comecando.gif)
- 
- 
-### Primeiro precisamos realizar algumas configurações.
-### Vale ressaltar que estou ultilizando Windows 10 certo?
 
+### Vale ressaltar que estou ultilizando Windows 10, se tiver utilizando linux, haverá algumas alterações apenas na forma de ativação do seu ambiente virtual, certo?
+<p align="center">
+### Primeiro precisamos realizar algumas configurações.
+</p>
 ### Backend:
 #### 1) Crie um novo ambiente virtual, execute o seguinte comando: python -m venv "nome do ambiente", ao criar, irei disponibilizar um arquivo chamando Requiriment.txt, nele você encontrará todas as depêndencias necessárias para o projeto funcionar.
 #### 2) Dentro do seu ambiente virtual, abra a pasta chamada scripts, (lembrando, dentro de um terminal), e execute o comando: activate, assim sua VENV(Ambiente virtual estará ativo), em seguida, cole o arquivo requiriment.txt dentro da sua VENV, e execute o comando: pip freeze -r requiriments.txt
