@@ -40,6 +40,8 @@
 
   <div class="buttons">
     <button routerLink="/register">Criar conta</button>
-    <button (click)="realizarLogin()">Acessar</button>
+    <button (click)="realizarLogin()" [disabled]="formLogin.invalid">
+      Acessar
+    </button>
   </div>
 </div>

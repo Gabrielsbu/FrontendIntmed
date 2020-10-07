@@ -57,6 +57,8 @@
 
   <div class="buttons">
     <button mat-dialog-close>Cancelar</button>
-    <button (click)="criarConsulta()">Confirmar</button>
+    <button (click)="criarConsulta()" [disabled]="consultaForm.invalid">
+      Confirmar
+    </button>
   </div>
 </form>

@@ -7,8 +7,8 @@
   <main>
     <form [formGroup]="registerForm">
       <mat-form-field>
-        <mat-label>Login</mat-label>
-        <input matInput placeholder="Login" formControlName="username" />
+        <mat-label>Username</mat-label>
+        <input matInput placeholder="Username" formControlName="username" />
       </mat-form-field>
 
       <mat-form-field>
@@ -61,7 +61,9 @@
 
     <div class="buttons">
       <button routerLink="">Cancelar</button>
-      <button (click)="createUser()">Cadastrar</button>
+      <button (click)="createUser()" [disabled]="registerForm.invalid">
+        Cadastrar
+      </button>
     </div>
   </main>
 </div>

@@ -22,7 +22,6 @@ export class ModalConsultsComponent implements OnInit {
   medicos: Medico[];
 
   public consultaForm: FormGroup;
-  public agendaForm: FormGroup;
 
   medicosPorEspecialidade: Medico[];
   agendaPorMedico: Agenda[];
