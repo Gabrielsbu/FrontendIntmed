@@ -30,3 +30,5 @@ Primeiro precisamos realizar algumas configurações.
 #### - [Gabriel Maia](https://github.com/Gabrielsbu)
 
 ### Tarefas pendentes
+#### - Backend - Desenvolver os filtros no Backend por falta de prática com o framework, os filtros que utilizei eu criei no frontend,
+#### - Frontend - Fazer o usuário poder logar com o username ou com o Email, atualmente só está o email.
