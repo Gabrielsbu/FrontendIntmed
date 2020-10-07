@@ -1,15 +1,17 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+
 import { Observable } from 'rxjs';
 import { IToken } from '../model/token';
 
+import { environment } from './../../../../environments/environment';
 import { User } from '../model/user.model';
 
 @Injectable({
   providedIn: 'root',
 })
 export class AuthenticationService {
-  apiUrlAuth = 'http://127.0.0.1:8000/auth';
+  apiUrlAuth = `${environment.API}/auth`;
 
   httpOptions = {
     headers: new HttpHeaders({
@@ -36,6 +38,6 @@ export class AuthenticationService {
   }
 
   public buscarUsuario(): Observable<any> {
-    return this.http.get<any>('http://127.0.0.1:8000/auth/user/');
+    return this.http.get<any>(this.apiUrlAuth + '/user/');
   }
 }
