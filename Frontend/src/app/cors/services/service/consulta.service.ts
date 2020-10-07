@@ -3,11 +3,13 @@ import { Observable } from 'rxjs';
 import { Injectable } from '@angular/core';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 
+import { environment } from './../../../../environments/environment';
+
 @Injectable({
   providedIn: 'root',
 })
 export class ConsultaService {
-  api = 'http://127.0.0.1:8000';
+  api = environment.API;
 
   httpOptions = {
     headers: new HttpHeaders({
