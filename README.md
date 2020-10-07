@@ -5,8 +5,8 @@
 
 ### Vale ressaltar que estou ultilizando Windows 10, se tiver utilizando linux, haverá algumas alterações apenas na forma de ativação do seu ambiente virtual, certo?
 
-<p align="center">
-###Primeiro precisamos realizar algumas configurações.
+<p align="center", fontSize="170px">
+Primeiro precisamos realizar algumas configurações.
 </p>
 
 ### Backend:
@@ -23,3 +23,10 @@
 #### Passo 3) Com isso feito, execute ng serve --o
 
 
+### Problemas
+#### Em [issues]() é possível ver uma lista de alguns problemas que obtive durante o desenvolvimento do projeto e como corrigi.
+
+### Contribuintes
+#### - [Gabriel Maia](https://github.com/Gabrielsbu)
+
+### Tarefas pendentes
