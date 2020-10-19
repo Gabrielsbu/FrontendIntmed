@@ -3,7 +3,7 @@
 
 ### Vale ressaltar que estou ultilizando Windows 10, se tiver utilizando linux, haverá algumas alterações apenas na forma de ativação do seu ambiente virtual, certo?
 
-![gifcomputacao](https://github.com/Gabrielsbu/Intmed-Backend/blob/master/comecando.gif)
+![gifcomputacao](https://github.com/Gabrielsbu/Gifs/blob/main/comecando.gif)
 
 ### Primeiro precisamos realizar algumas configurações.
 
